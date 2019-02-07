@@ -23,7 +23,7 @@
 <%
     try {
        Class.forName("com.mysql.jdbc.Driver");
-        Connection connection= DriverManager.getConnection("jdbc:mysql://35.240.137.14:3306/manobran_core","root","root");
+        Connection connection= DriverManager.getConnection("jdbc:mysql://35.240.137.14:3306/manobran_core","root","MANOJ@sliit2820");
         Statement statement=connection.createStatement();
         ResultSet resultSet=statement.executeQuery("SELECT  * FROM  dummy_table");
         while (resultSet.next()){
@@ -45,7 +45,7 @@
 
 
         }
-        statement.executeUpdate("DELETE from dummy_table where id = 3");
+        //statement.executeUpdate("DELETE from dummy_table where id = 3");
         connection.close();
     }catch (Exception e){
         e.printStackTrace();
