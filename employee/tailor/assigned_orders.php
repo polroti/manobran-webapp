@@ -1,14 +1,17 @@
 <?php
+
+
+
 session_start();
 
 // Check if the employee is logged in and is a tailor
-if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true || $_SESSION['employee_role'] !== 'tailor') {
+if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true || $_SESSION['employee_role'] !== 'TAILOR') {
     header('Location: employee_login.php');
     exit();
 }
 
 // Include the database connection
-require_once 'admin/includes/db_connect.php';
+require_once '../../db_connect.php';
 
 // Fetch orders assigned to the current tailor
 $stmt = $conn->prepare("SELECT * FROM orders WHERE assigned_to = :username");
@@ -17,10 +20,17 @@ $stmt->execute();
 $orders = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
-<?php include 'includes/employee_header.php'; ?>
-
+<?php 
+$header_file = '../emp_header.php';
+if (file_exists($header_file)) {
+    include $header_file;
+} else {
+    echo '<div class="exception-content"><p>The header file is missing. Please contact the administrator.</p></div>';
+}
+    ?>
 <div class="dashboard-container">
-    <?php include 'includes/employee_side_navigator.php'; ?>
+
+    <?php include './emp_side_navigator.php'; ?>
 
     <!-- Main Content -->
     <div class="main-content">

@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'];
 
     // Fetch employee credentials from the database
-    $stmt = $conn->prepare("SELECT * FROM users WHERE username = :username AND user_type IN ('cashier', 'tailor')");
+    $stmt = $conn->prepare("SELECT * FROM users WHERE username = :username AND user_type IN ('CASHIER', 'TAILOR')");
     $stmt->bindParam(':username', $username);
     $stmt->execute();
     $employee = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -23,10 +23,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['logged_in'] = true;
 
         // Redirect to the appropriate dashboard based on role
-        if ($employee['user_type'] === 'cashier') {
-            header('Location: cashier_dashboard.php');
+        if ($employee['user_type'] === 'CASHIER') {
+            header('Location: cashier/cashier_dashboard.php');
         } else {
-            header('Location: tailor_dashboard.php');
+            header('Location: tailor/tailor_dashboard.php');
         }
         exit();
     } else {

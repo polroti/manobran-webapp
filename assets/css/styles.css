@@ -195,6 +195,7 @@ footer {
   border-color: var(--primary-color);
   box-shadow: 0 0 0 2px rgba(63, 81, 181, 0.2);
 }
+
 /* Dashboard Styles */
 .dashboard-container {
   display: flex;

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manobran Tailors - Employee</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
-    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/styles.css">
 </head>
 <body>
     <nav class="mui-appbar mui--z1">
@@ -16,7 +16,7 @@
                     <td style="text-align: right;">
                         <?php if (isset($_SESSION['employee_username'])): ?>
                             <span>Welcome, <?php echo htmlspecialchars($_SESSION['employee_username']); ?></span>
-                            <a href="logout.php" class="mui-btn mui-btn--primary" style="margin-left: 10px;">Logout</a>
+                            <a href="../logout.php" class="mui-btn mui-btn--primary" style="margin-left: 10px;">Logout</a>
                         <?php endif; ?>
                     </td>
                 </tr>
